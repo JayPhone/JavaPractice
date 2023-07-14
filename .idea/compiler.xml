@@ -8,10 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="module4G" />
-        <module name="Future" />
+        <module name="module4G-socket" />
+        <module name="common" />
+        <module name="mqtt" />
+        <module name="mybatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Future" target="11" />
       <module name="nio" target="11" />
     </bytecodeTargetLevel>
   </component>
