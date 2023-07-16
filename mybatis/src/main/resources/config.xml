@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置MyBatis运行环境-->
+    <environments default="dev">
+        <environment id="dev">
+            <!--配置JDBC事务管理-->
+            <transactionManager type="JDBC"/>
+            <!--POOLED配置JDBC数据源连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://192.168.0.113:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/jayphone/practice/mapper/AccountMapper.xml"/>
+        <mapper resource="com/jayphone/practice/repository/AccountRepository.xml"/>
+        <mapper resource="com/jayphone/practice/repository/StudentRepository.xml"/>
+        <mapper resource="com/jayphone/practice/repository/ClassesRepository.xml"/>
+        <mapper resource="com/jayphone/practice/repository/CustomerRepository.xml"/>
+        <mapper resource="com/jayphone/practice/repository/GoodsRepository.xml"/>
+    </mappers>
+</configuration>

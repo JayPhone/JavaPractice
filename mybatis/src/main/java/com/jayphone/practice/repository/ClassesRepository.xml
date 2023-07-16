@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jayphone.practice.repository.ClassesRepository">
+    <resultMap id="classesMap" type="com.jayphone.practice.entity.Classes">
+        <id column="cid" property="id"/>
+        <result column="cname" property="name"/>
+        <collection property="students" ofType="com.jayphone.practice.entity.Student">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </collection>
+    </resultMap>
+    <select id="findById" parameterType="long" resultMap="classesMap">
+        select s.id, s.name, c.id as cid, c.name as cname
+        from student s,
+             classes c
+        where s.cid = c.id
+          and c.id = #{id}
+    </select>
+</mapper>
