@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jayphone.practice.repository.AccountRepository">
+    <cache></cache>
     <insert id="save" parameterType="com.jayphone.practice.entity.Account">
         INSERT INTO t_account(username, password, age)
         VALUES (#{username}, #{password}, #{age})
@@ -27,12 +28,82 @@
     <select id="findById" parameterType="java.lang.Long" resultType="com.jayphone.practice.entity.Account">
         SELECT *
         FROM t_account
-        WHERE id = #{id}
+        <where>
+            <foreach collection="list" open="id in (" item="id" separator="," close=")">
+                #{id}
+            </foreach>
+        </where>
     </select>
 
     <select id="findByUsernameAndAge" resultType="com.jayphone.practice.entity.Account">
         SELECT *
         FROM t_account
-        WHERE username = #{param1} AND age = #{param2}
+        WHERE username = #{param1}
+          AND age = #{param2}
     </select>
+
+    <!--    <select id="findAllByAccount" parameterType="com.jayphone.practice.entity.Account"-->
+    <!--            resultType="com.jayphone.practice.entity.Account">-->
+    <!--        select * from t_account-->
+    <!--        <where>-->
+    <!--            <if test="id != null and id != ''">-->
+    <!--                id = #{id}-->
+    <!--            </if>-->
+    <!--            <if test="username != null and username != ''">-->
+    <!--                and username = #{username}-->
+    <!--            </if>-->
+    <!--            <if test="password != null and password != ''">-->
+    <!--                and password = #{password}-->
+    <!--            </if>-->
+    <!--            <if test="age != null and age != ''">-->
+    <!--                and age = #{age}-->
+    <!--            </if>-->
+    <!--        </where>-->
+    <!--    </select>-->
+
+    <!--    <select id="findAllByAccount" parameterType="com.jayphone.practice.entity.Account"-->
+    <!--            resultType="com.jayphone.practice.entity.Account">-->
+    <!--        select * from t_account-->
+    <!--        <where>-->
+    <!--            &lt;!&ndash;只能选择一个&ndash;&gt;-->
+    <!--            <choose>-->
+    <!--                <when test="id != null and id != ''">-->
+    <!--                    id = #{id}-->
+    <!--                </when>-->
+    <!--                <when test="username != null and username != ''">-->
+    <!--                    username = #{username}-->
+    <!--                </when>-->
+    <!--                <when test="password != null and password != ''">-->
+    <!--                    `password` = #{password}-->
+    <!--                </when>-->
+    <!--                <when test="age != null and age != ''">-->
+    <!--                    age = #{age}-->
+    <!--                </when>-->
+    <!--                <otherwise>-->
+    <!--                    and age = 15-->
+    <!--                </otherwise>-->
+    <!--            </choose>-->
+    <!--        </where>-->
+    <!--    </select>-->
+
+    <select id="findAllByAccount" parameterType="com.jayphone.practice.entity.Account"
+            resultType="com.jayphone.practice.entity.Account">
+        select * from t_account
+        <!--prefixOverrides和suffixOverrides里面的元素会被删除-->
+        <trim prefix="where" prefixOverrides="and | or ">
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+        </trim>
+    </select>
+
 </mapper>

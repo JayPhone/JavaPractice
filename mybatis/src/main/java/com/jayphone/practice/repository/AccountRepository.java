@@ -13,8 +13,9 @@ public interface AccountRepository {
 
     List<Account> findAll();
 
-    Account findById(long id);
+    List<Account> findById(List<Long> idList);
 
     Account findByUsernameAndAge(String name, int age);
 
+    List<Account> findAllByAccount(Account account);
 }
