@@ -14,6 +14,7 @@
         <module>mqtt</module>
         <module>common</module>
         <module>mybatis</module>
+        <module>spring</module>
     </modules>
 
     <properties>

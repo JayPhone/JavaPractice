@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/beans/spring-aop.xsd">
+
+    <!--bean必须有无参构造函数，底层通过反射调用无参构造函数创建-->
+    <bean id="student" class="com.jayphone.practice.entity.Student">
+        <property name="id" value="1"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="22"/>
+        <property name="address" ref="address"/>
+    </bean>
+
+    <bean id="address" class="com.jayphone.practice.entity.Address">
+        <property name="id" value="1"/>
+        <property name="name" value="广东"/>
+    </bean>
+
+    <!--有参构造函数使用constructor-arg,如果缺少会报错,name可以忽略，会按顺序进行赋值，
+    如果顺序不对会抛异常，如果不按顺序，可以使用index-->
+    <bean id="student1" class="com.jayphone.practice.entity.Student">
+        <constructor-arg index="0" name="id" value="3"/>
+        <constructor-arg index="1" name="name" value="李四"/>
+        <constructor-arg index="2" name="age" value="25"/>
+        <constructor-arg index="3" name="address" ref="address"/>
+    </bean>
+</beans>
