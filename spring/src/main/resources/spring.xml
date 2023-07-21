@@ -14,6 +14,11 @@
         <property name="address" ref="address"/>
     </bean>
 
+    <!--parent可以继承属性-->
+    <bean id="student2" class="com.jayphone.practice.entity.Student" parent="student">
+        <property name="name" value="李四"/>
+    </bean>
+
     <bean id="address" class="com.jayphone.practice.entity.Address">
         <property name="id" value="1"/>
         <property name="name" value="广东"/>
