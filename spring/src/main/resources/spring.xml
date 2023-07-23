@@ -7,11 +7,16 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/beans/spring-aop.xsd">
 
     <!--bean必须有无参构造函数，底层通过反射调用无参构造函数创建-->
-    <bean id="student" class="com.jayphone.practice.entity.Student">
+    <bean id="student" class="com.jayphone.practice.entity.Student" scope="prototype">
         <property name="id" value="1"/>
         <property name="name" value="张三"/>
         <property name="age" value="22"/>
-        <property name="address" ref="address"/>
+        <property name="addresses">
+            <list>
+                <ref bean="address"/>
+                <ref bean="address2"/>
+            </list>
+        </property>
     </bean>
 
     <!--parent可以继承属性-->
@@ -22,6 +27,11 @@
     <bean id="address" class="com.jayphone.practice.entity.Address">
         <property name="id" value="1"/>
         <property name="name" value="广东"/>
+    </bean>
+
+    <bean id="address2" class="com.jayphone.practice.entity.Address">
+        <property name="id" value="2"/>
+        <property name="name" value="广西"/>
     </bean>
 
     <!--有参构造函数使用constructor-arg,如果缺少会报错,name可以忽略，会按顺序进行赋值，

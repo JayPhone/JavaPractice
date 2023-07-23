@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/beans/spring-aop.xsd">
+
+    <bean id="car" class="com.jayphone.practice.entity.Car">
+        <property name="id" value="1"/>
+        <property name="name" value="宝马"/>
+    </bean>
+
+    <!--autowire自动装载，
+    byName通过匹配属性名字装载，
+    byType通过bean的类型去匹配装载，如果存在多个同类型的bean对象，会报错
+    -->
+    <bean id="person" class="com.jayphone.practice.entity.Person" autowire="byName">
+        <property name="id" value="1"/>
+        <property name="name" value="张三"/>
+    </bean>
+</beans>

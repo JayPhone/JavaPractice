@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/beans/spring-aop.xsd">
+
+    <!---配置静态工厂创建 Car-->
+    <bean id="car" class="com.jayphone.practice.factory.StaticCarFactory" factory-method="getCar">
+        <constructor-arg value="2"/>
+    </bean>
+
+    <!--配置实例化工厂创建 Car-->
+    <bean id="carFactory" class="com.jayphone.practice.factory.InstanceCarFactory">
+
+    </bean>
+
+    <bean id="car2" factory-bean="carFactory" factory-method="getCar">
+        <constructor-arg value="1"/>
+    </bean>
+</beans>
