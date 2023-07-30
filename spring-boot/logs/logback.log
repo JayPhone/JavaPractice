@@ -1,0 +1,22 @@
+[INFO ] 2023-07-30 20:29:19.827 com.jayphone.practice.MySpringBootApplication logStarting 55 [main] Starting MySpringBootApplication using Java 11.0.18 on JayPhonedeMacBook-Pro.local with PID 9185 (/Users/jayphone/IdeaProjects/JavaPractice/spring-boot/target/classes started by jayphone in /Users/jayphone/IdeaProjects/JavaPractice)
+[INFO ] 2023-07-30 20:29:19.828 com.jayphone.practice.MySpringBootApplication logStartupProfileInfo 631 [main] No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-07-30 20:29:20.117 org.springframework.boot.web.embedded.tomcat.TomcatWebServer initialize 108 [main] Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-07-30 20:29:20.123 org.apache.coyote.http11.Http11NioProtocol log 173 [main] Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-07-30 20:29:20.124 org.apache.catalina.core.StandardService log 173 [main] Starting service [Tomcat]
+[INFO ] 2023-07-30 20:29:20.124 org.apache.catalina.core.StandardEngine log 173 [main] Starting Servlet engine: [Apache Tomcat/9.0.75]
+[INFO ] 2023-07-30 20:29:20.190 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log 173 [main] Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-07-30 20:29:20.190 org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext prepareWebApplicationContext 292 [main] Root WebApplicationContext: initialization completed in 347 ms
+[INFO ] 2023-07-30 20:29:20.299 org.apache.coyote.http11.Http11NioProtocol log 173 [main] Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-07-30 20:29:20.307 org.springframework.boot.web.embedded.tomcat.TomcatWebServer start 220 [main] Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-07-30 20:29:20.317 com.jayphone.practice.MySpringBootApplication logStarted 61 [main] Started MySpringBootApplication in 0.608 seconds (JVM running for 1.215)
+[INFO ] 2023-07-30 20:33:41.346 com.jayphone.practice.MySpringBootApplication logStarting 55 [main] Starting MySpringBootApplication using Java 11.0.18 on JayPhonedeMacBook-Pro.local with PID 9252 (/Users/jayphone/IdeaProjects/JavaPractice/spring-boot/target/classes started by jayphone in /Users/jayphone/IdeaProjects/JavaPractice)
+[INFO ] 2023-07-30 20:33:41.347 com.jayphone.practice.MySpringBootApplication logStartupProfileInfo 631 [main] No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-07-30 20:33:41.622 org.springframework.boot.web.embedded.tomcat.TomcatWebServer initialize 108 [main] Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-07-30 20:33:41.625 org.apache.coyote.http11.Http11NioProtocol log 173 [main] Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-07-30 20:33:41.625 org.apache.catalina.core.StandardService log 173 [main] Starting service [Tomcat]
+[INFO ] 2023-07-30 20:33:41.625 org.apache.catalina.core.StandardEngine log 173 [main] Starting Servlet engine: [Apache Tomcat/9.0.75]
+[INFO ] 2023-07-30 20:33:41.656 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log 173 [main] Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-07-30 20:33:41.656 org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext prepareWebApplicationContext 292 [main] Root WebApplicationContext: initialization completed in 294 ms
+[INFO ] 2023-07-30 20:33:41.766 org.apache.coyote.http11.Http11NioProtocol log 173 [main] Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-07-30 20:33:41.779 org.springframework.boot.web.embedded.tomcat.TomcatWebServer start 220 [main] Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-07-30 20:33:41.788 com.jayphone.practice.MySpringBootApplication logStarted 61 [main] Started MySpringBootApplication in 0.591 seconds (JVM running for 1.06)
