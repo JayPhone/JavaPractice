@@ -1,0 +1,6 @@
+server:
+  port: 8100
+
+fgcm:
+  serverPort: 8235
+  enable: true

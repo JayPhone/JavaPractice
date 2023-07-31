@@ -1,6 +1,7 @@
 package com.jayphone.practice.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.net.Socket;
@@ -14,6 +15,7 @@ import java.util.function.BiConsumer;
  * @date 2023/7/7
  */
 @Slf4j
+@Component
 public class SocketThreadManager {
     private Map<String, SocketThread> socketThreadMap = new ConcurrentHashMap<>();
 

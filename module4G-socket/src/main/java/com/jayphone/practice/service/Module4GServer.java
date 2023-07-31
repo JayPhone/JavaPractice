@@ -1,10 +1,12 @@
 package com.jayphone.practice.service;
 
+import com.jayphone.practice.config.FgcmProperties;
 import com.jayphone.practice.entity.SendResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
+import javax.annotation.Resource;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,31 +19,41 @@ import java.net.Socket;
 @Slf4j
 @Component
 public class Module4GServer {
-    private volatile static Module4GServer instance;
+//    private volatile static Module4GServer instance;
+//
+//    public static final int SERVER_PORT = 8234;
+//
 
-    public static final int SERVER_PORT = 8234;
+    @Resource
+    private SocketThreadManager socketThreadManager;
+
+    @Resource
+    private FgcmProperties fgcmProperties;
 
     private ServerSocket serverSocket;
-    private final SocketThreadManager socketThreadManager;
 
-    private Module4GServer() {
-        socketThreadManager = new SocketThreadManager();
-    }
+//    private Module4GServer() {
+//        socketThreadManager = new SocketThreadManager();
+//    }
 
-    public static Module4GServer getInstance() {
-        if (instance == null) {
-            synchronized (Module4GServer.class) {
-                if (instance == null) {
-                    instance = new Module4GServer();
-                }
-            }
-        }
-        return instance;
-    }
+//    public static Module4GServer getInstance() {
+//        if (instance == null) {
+//            synchronized (Module4GServer.class) {
+//                if (instance == null) {
+//                    instance = new Module4GServer();
+//                }
+//            }
+//        }
+//        return instance;
+//    }
 
     public void start() {
+        if (!fgcmProperties.getEnable()) {
+            log.info("服务未启用");
+            return;
+        }
         try {
-            serverSocket = new ServerSocket(SERVER_PORT);
+            serverSocket = new ServerSocket(8234);
             while (true) {
                 Socket socket = serverSocket.accept();
                 log.info("设备{} 接入连接", socket.getRemoteSocketAddress());

@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class Module4GApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(Module4GApplication.class, args);
     }

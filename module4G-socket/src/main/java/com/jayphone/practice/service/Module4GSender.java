@@ -2,7 +2,9 @@ package com.jayphone.practice.service;
 
 import com.jayphone.practice.entity.SendResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
@@ -11,9 +13,18 @@ import javax.annotation.Resource;
  * @date 2023/6/9
  */
 @Slf4j
+@Component
 public class Module4GSender {
     @Resource
     private Module4GServer module4GServer;
+
+    private static Module4GServer sModule4GServer;
+
+    @PostConstruct
+    public void init() {
+        sModule4GServer = module4GServer;
+    }
+
     /**
      * 发送短信
      *
@@ -23,7 +34,7 @@ public class Module4GSender {
      */
     public static SendResult sendMsg(String phone, String msg) {
         log.info("开始发送短信");
-        SendResult result = Module4GServer.getInstance().sendMsg(phone, msg);
+        SendResult result = sModule4GServer.sendMsg(phone, msg);
         log.info("结束发送短信");
         return result;
     }
@@ -37,7 +48,7 @@ public class Module4GSender {
      */
     public static SendResult sendVoiceCall(String phone, String msg) {
         log.info("开始发送语音");
-        SendResult result = Module4GServer.getInstance().sendVoice(phone, msg);
+        SendResult result = sModule4GServer.sendVoice(phone, msg);
         log.info("结束发送语音");
         return result;
     }

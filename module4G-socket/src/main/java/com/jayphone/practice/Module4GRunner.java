@@ -5,6 +5,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 /**
  * @author JayPhone
  * @description
@@ -12,8 +14,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Module4GRunner implements ApplicationRunner {
+
+    @Resource
+    private Module4GServer module4GServer;
+
     @Override
-    public void run(ApplicationArguments args) throws Exception {
-        Module4GServer.getInstance().start();
+    public void run(ApplicationArguments args) {
+        module4GServer.start();
     }
 }

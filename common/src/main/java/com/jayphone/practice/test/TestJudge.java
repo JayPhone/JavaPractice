@@ -1,4 +1,4 @@
-package com.jayphone.practice;
+package com.jayphone.practice.test;
 
 import java.util.Scanner;
 
