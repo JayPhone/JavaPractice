@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring" />
+        <module name="protocol" />
         <module name="module4G" />
         <module name="module4G-socket" />
         <module name="common" />
-        <module name="mqtt" />
         <module name="mybatis" />
         <module name="spring-boot" />
       </profile>
@@ -23,8 +23,8 @@
       <module name="common" options="-parameters" />
       <module name="module4G" options="-parameters" />
       <module name="module4G-socket" options="-parameters" />
-      <module name="mqtt" options="-parameters" />
       <module name="mybatis" options="-parameters" />
+      <module name="protocol" options="-parameters" />
       <module name="spring" options="-parameters" />
       <module name="spring-boot" options="-parameters" />
     </option>

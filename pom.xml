@@ -17,7 +17,7 @@
     <modules>
         <module>module4G</module>
         <module>module4G-socket</module>
-        <module>mqtt</module>
+        <module>protocol</module>
         <module>common</module>
         <module>mybatis</module>
         <module>spring</module>
